@@ -30,9 +30,12 @@ Test cases:
 */
 
 function addTogether() {
+    if (Object.values(arguments).some((e) => typeof e != "number"))
+        return undefined;
+
     if (arguments.length === 2) return arguments[0] + arguments[1];
 
-    return (x) => x + arguments[0];
+    return (x) => (typeof x === "number" ? x + arguments[0] : undefined);
 }
 
 addTogether(2, 3);
