@@ -33,7 +33,7 @@ function sumFibs(num) {
     )
         fibonacci.push(next);
 
-    return fibonacci.filter((n) => n % 2 !== 0).reduce((p, c) => p + c);
+    return fibonacci.filter((n) => (n & 1) == 1).reduce((p, c) => p + c);
 }
 
 sumFibs(4);
