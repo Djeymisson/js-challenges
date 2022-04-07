@@ -16,17 +16,17 @@ Test cases:
 
 function sumPrimes(num) {
     let primes = [];
-
-    for (let i = num; i > 1; i--) {
-        if (isPrime(i)) primes.push(i);
-    }
+    for (let i = num; i > 1; i--) if (isPrime(i)) primes.push(i);
 
     return primes.reduce((p, c) => p + c, 0);
 }
 
-function isPrime(element) {
-    let start = 2;
-    while (start < element) if (element % start++ < 1) return false;
+function isPrime(n) {
+    if (n == 2) return true;
+    if (n == 1 || (n & 1) == 0) return false;
+
+    for (let i = 3; i <= Math.sqrt(n); i += 2) if (n % i == 0) return false;
+
     return true;
 }
 
